@@ -25,6 +25,12 @@ class MY_Loader extends CI_Loader {
     {
         return $this->_ci_models;
     }
+    
+    protected function render($the_view = NULL, $template = 'master')
+    {
+      $this->data['the_view_content'] = (is_null($the_view)) ? '' : $this->load->view($the_view,$this->data, TRUE);
+      $this->load->view('templates/'.$template.'_view', $this->data);
+    }
 }
 /* End of file 'MY_Loader' */
 /* Location: ./application/core/MY_Loader.php */

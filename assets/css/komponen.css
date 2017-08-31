@@ -1,0 +1,32 @@
+.panels {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=15, Direction=135, Color=#09192D)";
+    /*IE 8*/
+    -moz-box-shadow: 1px 1px 15px 1px black;
+    /*FF 3.5+*/
+    -webkit-box-shadow: 1px 1px 15px 1px black;
+    /*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+    box-shadow: 1px 1px 15px 1px black;
+    /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=15, Direction=135, Color=#09192D);
+    /*IE 5.5-7*/
+}
+.keterangan {
+    font-size: 0.88em;
+}
+
+.responsiveTabs {
+    max-width: 100%;
+    margin: auto auto 2em auto;
+    padding: 4px 4px 4px 4px;
+}
+
+.list-group>.list-group-item {
+    border: transparent;
+}
+.nav-tabs > li.active{
+    padding: 1px 1px 1px 1px;
+    border-bottom: 5px solid #09192D;
+}
+.panel-heading{
+    padding:0;
+}
