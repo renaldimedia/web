@@ -1,7 +1,8 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 $this->load->view('templates/_parts/admin_master_header_view');?>
-    <div class="container-fluid" style="width:100%;padding:auto auto auto auto;">
-        <div class="konten">
+    <div id="page-wrapper">
+    
+                <div class="container-fluid">
                 
             <?php echo $the_view_content;?>
             
