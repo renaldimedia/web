@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Welcome extends CI_Controller {
+//include_once(APPPATH.'core/Admin_Controller.php');
+class Welcome extends Admin_Controller {
 
 	/**
 	 * Index Page for this controller.
