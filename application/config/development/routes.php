@@ -53,7 +53,15 @@ $route['default_controller'] = 'public/Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['home'] = 'public/home/index';
-$route['materi'] = 'public/materi/index';
+$route['materi'] = "public/materi/index";
+$route['public/penelitian/tahun/(:num)/hal/(:num)'] = "public/penelitian/index/$1/$2";
+$route['public/penelitian/hal/(:num)/tahun/(:num)'] = "public/penelitian/index/$2/$1";
+$route['public/penelitian/pages/(:num)'] = "public/penelitian/index/0/$1";
+
+$route['public/penelitian/tahun/(:num)'] = "public/penelitian/index/$1/0";
+
+
+
 // $route['materi/(:any)'] = 'public/materi/index/$1';
 // $route['materi/(:any)/(:any)'] = 'public/materi/index/$1/$2';
 // $route['materi/(:any)/(:any)/(:any)'] = 'public/materi/index/$1/$2/$3';

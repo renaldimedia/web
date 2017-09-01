@@ -36,7 +36,7 @@ class Admin_Controller extends MY_Controller
               ";
     $items = $this->db->query($query)->result_array();
     $this->data['menu'] = $this->bootstrap_menuadm($items);
-    $this->db->close();
+    //$this->db->close();
   }
 
   function bootstrap_menuadm($array, $class1 = "dropdown",$induk_menu = 0, $parents = array())
