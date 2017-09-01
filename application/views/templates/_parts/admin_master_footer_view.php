@@ -1,6 +1,5 @@
 </div>
-   <!-- jQuery -->
-   <script src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
+   
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
@@ -13,9 +12,13 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script>
-                $(document).ready(function() {
-                    $( '#sidenav li[class="active"]' ).parents().removeClass();
-                    $( '#sidenav li > a[href="<?php echo base_url(); ?>' + location.pathname.split("/")[2] + '"]' ).parents().addClass("active");
+                jQuery(document).ready(function() {
+                    $( '#sidenav li[class="active"]' ).removeClass();
+                    $( '#sidenav .side-nav > li > a[href="<?php echo base_url(); ?>admin/' + location.pathname.split("/")[3] + '"]' ).parent().addClass("active");
+
+                    $("#sidenav > ul > li > a.dropdown-toggle").focusout(function() {
+                        $('#demo').removeClass("in");
+                    });
                 });  
             </script>
             <?php echo $before_body;?>
