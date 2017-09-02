@@ -51,14 +51,20 @@
                 opacity: 1;
                 color: black;
             }
+            #page-num{
+                position: relative;
+                margin: auto;
+                
+            }
             
         </style>
      
         <div class="container-fluid" style="background-color: white;padding-bottom:4vw;">
             <row style="background-color: white;">
-                <div class="col-lg-10" style="background-color: white;">
-                    <h2 class="page-header">Download Jurnal Penelitian <?php echo $tahun; ?></h2>
+                <div class="col-lg-10 col-md-12" style="background-color: white;text-align:center;">
+                    <h2 class="page-header">Download Jurnal Penelitian <?php echo $tahun; //echo $cUrl; ?></h2>
                     <p class="text-info"><?php echo $msg; ?></p>
+                    <?php echo ($pagination); ?>
                     <!-- Penampakan jurnal penelitian -->
                     <?php 
                         foreach ($data as $key => $val) : 
@@ -69,17 +75,18 @@
                                 <div class="pdf col-lg-8 col-md-8 col-sm-12 col-xs-12" style="text-align:center;">
                                 <h3 class="page-header"></h3>
                                     <a class="" href="<?php echo base_url().'uploads/'.$val['id_file'] ?>" style="text-align:center;">
-                                        <img src="<?php echo base_url(); ?>uploads/thumbs/<?php echo $val['thumbnail'] ?>" style="border:1px solid black;" alt="<?php echo base_url().'uploads/'.$val['id_file'] ?>"></img>
+                                        <img src="<?php echo base_url(); ?>uploads/thumbs/<?php echo $val['thumbnail'] ?>" style="border:1px solid black;width:80%;" alt="<?php echo base_url().'uploads/'.$val['id_file'] ?>"></img>
                                         <span class="dl glyphicon glyphicon-download-alt" style="text-align:center;"><br/>Unduh</span>
                                     </a> 
                                 </div>
+                                
                         </row>
                         <row>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align:center;margin-top:10px;"><a class="btn btn-default" style="margin:auto;">Download Berkas PDF</a></div>
                         </row>
                     </row>
                         <?php endforeach;
-                           // echo $link;
+                           
                         ?>
                         <!-- paginasi
                         <nav aria-label="Page navigation">
@@ -102,6 +109,8 @@
                             </ul>
                         </nav> -->
                     <!-- Penampakan jurnal penelitian ahir -->
+                    <div class="col-lg-12 col-md-12"><?php echo ($pagination); ?></div>
+                    
                 </div>
                 <div id="sidebar" class="well col-lg-2 col-md-2 col-sm-12 col-xs-12">
               
@@ -111,7 +120,9 @@
                             <ul class="nav nav-pills nav-stacked">
 
                             <?php
-                                //echo (21 % 2);
+                                // //echo (21 % 2);
+                                // //echo $result;
+                                // echo $tot;
                                 foreach ($list_tahun as $val) : 
                             ?>
                                 <li role="presentation"><a href="<?php echo $url.'/tahun/'.$val->tahun_penelitian; ?>"><?php echo $val->tahun_penelitian; ?></a></li>

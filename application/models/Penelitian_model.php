@@ -21,5 +21,6 @@ class Penelitian_model extends CI_Model
         $query="SELECT `penelitian`.* FROM `penelitian` WHERE `penelitian`.tahun = $year";
         return ($this->db->query($query)->result());
     }
+   
  
 }

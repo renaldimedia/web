@@ -56,7 +56,8 @@ $route['home'] = 'public/home/index';
 $route['materi'] = "public/materi/index";
 $route['public/penelitian/tahun/(:num)/hal/(:num)'] = "public/penelitian/index/$1/$2";
 $route['public/penelitian/hal/(:num)/tahun/(:num)'] = "public/penelitian/index/$2/$1";
-$route['public/penelitian/pages/(:num)'] = "public/penelitian/index/0/$1";
+$route['public/penelitian/hal'] = "public/penelitian/index/0/0";
+$route['public/penelitian/hal/(:num)'] = "public/penelitian/index/0/$1";
 
 $route['public/penelitian/tahun/(:num)'] = "public/penelitian/index/$1/0";
 
