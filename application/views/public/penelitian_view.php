@@ -34,7 +34,8 @@
                 left:40%;
             }
             .glyphicon{
-                font-size: 5vw; 
+                font-size: 5vw;
+                font-size:auto; 
                 color: whitesmoke;
             }
             .pdf{
@@ -42,10 +43,10 @@
                 margin:auto;
                 
             }
-            .pdf:hover img{
+            .pdf > a:hover img{
                 opacity: 0.1;
             }
-            .pdf:hover .dl{
+            .pdf > a:hover .dl{
                 display: block;
                 z-index: 100;
                 opacity: 1;
@@ -75,8 +76,10 @@
                                 <div class="pdf col-lg-8 col-md-8 col-sm-12 col-xs-12" style="text-align:center;">
                                 <h3 class="page-header"></h3>
                                     <a class="" href="<?php echo base_url().'uploads/'.$val['id_file'] ?>" style="text-align:center;">
-                                        <img src="<?php echo base_url(); ?>uploads/thumbs/<?php echo $val['thumbnail'] ?>" style="border:1px solid black;width:80%;" alt="<?php echo base_url().'uploads/'.$val['id_file'] ?>"></img>
+                                        <img src="<?php echo base_url(); ?>uploads/thumbs/<?php echo $val['thumbnail'] ?>" style="border:1px solid black;width:80%;" alt="<?php echo base_url().'uploads/'.$val['id_file'] ?>">
                                         <span class="dl glyphicon glyphicon-download-alt" style="text-align:center;"><br/>Unduh</span>
+                                        </img>
+                                        
                                     </a> 
                                 </div>
                                 
@@ -118,20 +121,20 @@
                         <div class="panel-heading">
                         <h4 style="padding-top:15px;">Tahun</h4></div>
                             <ul class="nav nav-pills nav-stacked">
-
-                            <?php
-                                // //echo (21 % 2);
-                                // //echo $result;
-                                // echo $tot;
-                                foreach ($list_tahun as $val) : 
-                            ?>
-                                <li role="presentation"><a href="<?php echo $url.'/tahun/'.$val->tahun_penelitian; ?>">
-                                <?php echo $val->tahun_penelitian;?>
-                                <?php endforeach; ?>
+                            <?php //foreach ($tahun_count as $key => $x): ?>
+                            <?php foreach ($list_tahun as $val) : ?>
+                                    <li role="presentation"><a href="<?php echo $url.'/tahun/'.$val->tahun_penelitian; ?>">
+                                    <?php echo $val->tahun_penelitian;echo '<span class="badge"> '.$tahun_count[$val->tahun_penelitian][0].' data</span>'?>
+                                    
+                             
+                                    
+                            
+                                
+                               <?php endforeach;//endforeach; ?>
                     </div>
                 </div>
             </row>
-
+            
         </div>
 
         

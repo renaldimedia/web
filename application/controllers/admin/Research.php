@@ -87,14 +87,19 @@ class Research extends Admin_Controller
 
     }
 
-    private function __generate_thumbs($data)
+    private function _generate_thumbs($data)
         {
                 for($i=0; $i<count($data); $i++) {
                         $pdfname = $data[$i]['file_name'];
-                        $myurl = './uploads/'.$pdfname.'[0]';
+                        $fileone = realpath($pdfname);
+                        
+                        if (!is_readable($fileone)) {
+                            echo 'file not readable';
+                        }else{
+                        $myurl = base_url().'uploads/'.$pdfname.'[0]';
                         $image = new Imagick($myurl);
-                        $image->setOption('density','400');
-                        $image->setResolution( 1200, 1900 );
+                        $image->setOption('density','200');
+                        //$image->setResolution( 1200, 1900 );
                         // set background to white (Imagick doesn't know how to deal with transparent background if you don't instruct it)
                         $image->setImageBackgroundColor(new ImagickPixel('white'));
 
@@ -103,6 +108,7 @@ class Research extends Admin_Controller
                         $image->setImageFormat( "jpg" );
                         $image->setOption('resize','25%');
                         $image->writeImage('./uploads/thumbs/'.$pdfname.'.jpg');
+                        }
                 }
         }
 
@@ -141,7 +147,7 @@ class Research extends Admin_Controller
                                         }
                                         $this->db->insert_batch('penelitian',$data);
                                 
-                                $this->__generate_thumbs($uploaded);
+                                $this->_generate_thumbs($uploaded);
                                 
                                 chmod('./uploads/', 777);
                                 $this->session->set_flashdata('msg', 'File Uploaded!');

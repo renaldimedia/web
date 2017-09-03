@@ -30,14 +30,18 @@ class Penelitian extends Public_Controller
 
     private function _get_tahun_penelitian()
     {
-        $query="SELECT DISTINCT tahun_penelitian FROM penelitian ORDER BY tahun_penelitian ASC";
-        return $this->db->query($query)->result();
+        $query="SELECT  DISTINCT tahun_penelitian FROM penelitian ORDER BY tahun_penelitian ASC";
+        $data = $this->db->query($query)->result();
+         //echo json_encode($data);
+         return $data;
     }
 
-    private function _get_count_tahun_penelitian($tahun)
+    private function get_count_tahun_penelitian($tahun)
     {
-        $query="SELECT tahun_penelitian FROM penelitian WHERE tahun_penelitian = $tahun ORDER BY tahun_penelitian ASC";
-        return $this->db->query($query)->num_rows();
+        $query="SELECT tahun_penelitian FROM penelitian WHERE tahun_penelitian = $tahun";
+        $data = count($this->db->query($query)->result());
+        //echo json_encode($data);
+        return $data;
     }
 
     public function index($tahun = null)
@@ -59,13 +63,15 @@ class Penelitian extends Public_Controller
         $jumlah_tahun = count($list_tahun);
         $years = array();
         $num = 1;    
+        $this->data['list_tahun'] = $list_tahun;
         foreach ($list_tahun as $thn){
-                $tot_tahun = $this->_get_count_tahun_penelitian($list_tahun[($num-1).'']->tahun_penelitian);
-                $years[] = array($list_tahun[($num-1).'']->tahun_penelitian => $tot_tahun);
+                $tot_tahun = $this->get_count_tahun_penelitian($list_tahun[$num-1]->tahun_penelitian);
+                $years[$list_tahun[$num-1]->tahun_penelitian] = array($tot_tahun);
                 $num++;
         }
         $this->data['tahun_count'] = $years;
         //default uri segment = 4
+        $this->data['list_tahun'] = $list_tahun;
         $config['uri_segment'] = 4;
         $config['per_page'] = 5;// ONE OF MY PROBLEM
         $config['base_url'] = site_url().'public/penelitian/';
@@ -97,7 +103,7 @@ class Penelitian extends Public_Controller
         $this->data['data'] = $datas;
         $this->data['tahun'] = $tahuns;
         $this->data['url'] = $this->page->base_url('penelitian');
-        $this->data['list_tahun'] = $list_tahun;
+        
         $config['total_rows'] = $this->db->get('penelitian')->num_rows();
 
 
