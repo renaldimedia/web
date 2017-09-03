@@ -1,10 +1,13 @@
 #myFooter {
     position: relative;
     padding-top: 32px;
+    width:100%;
+    font-size:1vw;
 }
 
 #myFooter .container {
     text-align: center;
+    width:100%; 
 }
 
 #myFooter .footer-copyright {
@@ -38,7 +41,7 @@
 }
 
 #myFooter .fa {
-    font-size: 36px;
+    font-size: 1.5em;
     margin-right: 15px;
     margin-left: 20px;
     background-color: #09232e;
@@ -104,4 +107,5 @@ body {
 #myFooter {
     flex: 0 0 auto;
     -webkit-flex: 0 0 auto;
+    width:100%;
 }

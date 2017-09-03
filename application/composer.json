@@ -3,7 +3,11 @@
     "description": "Web for Lecturer",
     "type": "project",
     "require": {
-        "php": ">=5.3"
+        "facebook/php-sdk-v4": "^5.2"
+    },
+    "require-dev": {
+        "php": ">=5.3",
+        "squizlabs/php_codesniffer": "*"
     },
     "authors": [
         {

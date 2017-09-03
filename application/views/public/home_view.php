@@ -4,6 +4,7 @@
 
 <div class="row">
     <div class="col-lg-12">
+        <!--
         <div id="panel-post-terkini" class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Post Terkini</h3>
@@ -40,7 +41,7 @@
                 </div>
             </div>
         </div>
-
+-->
         <div class="row sliders">
             <div class="col-xs-12 col-lg-12">
                 <!-- slider -->
@@ -217,14 +218,6 @@
 
         <script src="<?php echo base_url();?>assets/js/slider.js"></script>
         <style>
-            body {
-                
-            }
-
-           
-
-            
-
             .sliders {
                 width: 100%;
                 margin:auto;
@@ -243,7 +236,8 @@
            
         </style>
         <script>
-               $('#myCarousel').carousel();
+            $(window).resize(function(){
+                $('#myCarousel').carousel();
                 var winWidth = $(window).innerWidth();
                 $(window).resize(function () {
 
@@ -255,10 +249,12 @@
                     else {
                         winWidth = $(window).innerWidth();
                         $('.carousel-inner>.item>img').css({
-                            'min-width': '', 'width': ''
+                            'min-width': '', 'width': '100%'
                         });
                     }
                 });
+            });
+               
 
         </script>
         <script>

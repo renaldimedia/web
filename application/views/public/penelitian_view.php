@@ -125,7 +125,8 @@
                                 // echo $tot;
                                 foreach ($list_tahun as $val) : 
                             ?>
-                                <li role="presentation"><a href="<?php echo $url.'/tahun/'.$val->tahun_penelitian; ?>"><?php echo $val->tahun_penelitian; ?></a></li>
+                                <li role="presentation"><a href="<?php echo $url.'/tahun/'.$val->tahun_penelitian; ?>">
+                                <?php echo $val->tahun_penelitian;?>
                                 <?php endforeach; ?>
                     </div>
                 </div>

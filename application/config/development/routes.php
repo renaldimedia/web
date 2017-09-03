@@ -54,13 +54,16 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['home'] = 'public/home/index';
 $route['materi'] = "public/materi/index";
+$route['public'] = 'public/home/index';
+
 $route['public/penelitian/tahun/(:num)/hal/(:num)'] = "public/penelitian/index/$1/$2";
 $route['public/penelitian/hal/(:num)/tahun/(:num)'] = "public/penelitian/index/$2/$1";
-$route['public/penelitian/hal'] = "public/penelitian/index/0/0";
+
+$route['public/penelitian/hal'] = "public/penelitian/index/0/1";
 $route['public/penelitian/hal/(:num)'] = "public/penelitian/index/0/$1";
 
 $route['public/penelitian/tahun/(:num)'] = "public/penelitian/index/$1/0";
-
+$route['public/penelitian/tahun/(:num)/hal'] = 'public/penelitian/index/$1/1/';
 
 
 // $route['materi/(:any)'] = 'public/materi/index/$1';

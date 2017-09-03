@@ -1,14 +1,12 @@
 * {
 	padding: 0;
 	margin: 0;
-	font-size: 100%;
 }
 
 
 
 body {
 	background-color: #09232e;
-	font-size: 1.2em;
 }
 
 .container, .container-fluid {
@@ -89,4 +87,29 @@ body {
 	/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=11, Direction=135, Color=#000000);
 	/*IE 5.5-7*/
+}
+
+@media (max-width:1440px){
+    
+	* {
+		font-size: 110%;
+	}
+}
+@media (max-width:1440px){
+    
+	* {
+		font-size: 100%;
+	}
+}
+@media (max-width:1024px){
+    
+	* {
+		font-size: 98%;
+	}
+}
+@media (max-width:768px){
+    
+	* {
+		font-size: 96%;
+	}
 }
