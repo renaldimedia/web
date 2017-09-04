@@ -17,6 +17,7 @@
                 <th>Jurusan</th>
                 <th>Mata Kuliah</th>
                 <th>Waktu Unggah</th>
+                <th>id_materi</th>
                 <th class="actions-column">Aksi</th>
             </tr>
         </thead>
@@ -30,6 +31,7 @@
                 <th>Jurusan</th>
                 <th>Mata Kuliah</th>
                 <th>Waktu Unggah</th>
+                <th>id_materi</th>
                 <th class="actions-column">Aksi</th>
             </tr>
         </tfoot>
@@ -62,9 +64,15 @@
 
                 },
                 {
-                    "targets": 6,
+                    "targets":6,
+                    "visible":false,
+                    "searchable": false
+
+                },
+                {
+                    "targets": 7,
                         "render": function(data, type, row, meta){
-                        return '<a class="btn btn-xs btn-success" href="<?php echo base_url(); ?>admin/upload/edit_file/' + row[1] + '"><span class="glyphicon glyphicon-pencil"></span> Edit </a><a class="btn btn-xs btn-danger" href="<?php echo base_url(); ?>admin/upload/hapus/' + row[1] + '"><span class="glyphicon glyphicon-remove"></span> Hapus</a>';  
+                        return '<a class="btn btn-xs btn-success" href="<?php echo base_url(); ?>admin/upload/edit_file/' + row[1] + '"><span class="glyphicon glyphicon-pencil"></span> Edit </a><a class="btn btn-xs btn-danger" href="<?php echo base_url(); ?>admin/upload/hapus/' + row[6] + '"><span class="glyphicon glyphicon-remove"></span> Hapus</a>';  
                         }
                 },
             ],

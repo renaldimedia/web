@@ -11,12 +11,6 @@
     <br/>Selected files:
     <div id="fileList"></div>
 </div>
-<div class="form-group">
-    <label for="tahun">Tahun Penelitian*</label>
-    <input type="text" class="form-control" name="tahun" id="tahun" placeholder="Tahun Penelitian" onblur="yearValidation(this.value)"
-        required>
-</div>
-
 <!-- jika dibutuhkan, pakai bagian ini
 <div class="optional" style="display:none;">
 
@@ -53,6 +47,13 @@
     </div>
 </div>
                 -->
+
+<div class="form-group">
+    <label for="tahun">Tahun Penelitian*</label>
+    <input type="text" class="form-control" name="tahun" id="tahun" placeholder="Tahun Penelitian" onblur="yearValidation(this.value)"
+        required>
+</div>
+
 
 <p class="bg-info">
     <?php echo $this->session->flashdata('msg'); ?>

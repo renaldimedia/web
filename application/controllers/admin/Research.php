@@ -87,31 +87,31 @@ class Research extends Admin_Controller
 
     }
 
-    private function _generate_thumbs($data)
-        {
-                for($i=0; $i<count($data); $i++) {
-                        $pdfname = $data[$i]['file_name'];
-                        // $fileone = realpath($pdfname);
+//     private function _generate_thumbs($data)
+//         {
+//                 for($i=0; $i<count($data); $i++) {
+//                         $pdfname = $data[$i]['file_name'];
+//                         // $fileone = realpath($pdfname);
                         
-                        // if (!is_readable($fileone)) {
-                        //     echo 'file not readable';
-                        // }else{
-                        putenv( 'PATH=' . getenv('PATH') . ':/usr/local/bin:/usr/bin' );        
-                        $myurl = './uploads/'.$pdfname.'[0]';
-                        $image = new Imagick($myurl);
-                        $image->setOption('density','400');
-                        $image->setResolution( 1200, 1900 );
-                        // set background to white (Imagick doesn't know how to deal with transparent background if you don't instruct it)
-                        $image->setImageBackgroundColor(new ImagickPixel('white'));
+//                         // if (!is_readable($fileone)) {
+//                         //     echo 'file not readable';
+//                         // }else{
+//                         putenv( 'PATH=' . getenv('PATH') . ':/usr/local/bin:/usr/bin' );        
+//                         $myurl = './uploads/'.$pdfname.'[0]';
+//                         $image = new Imagick($myurl);
+//                         $image->setOption('density','400');
+//                         $image->setResolution( 1200, 1900 );
+//                         // set background to white (Imagick doesn't know how to deal with transparent background if you don't instruct it)
+//                         $image->setImageBackgroundColor(new ImagickPixel('white'));
 
-                        // flattens multiple layers
-                        $image = $image->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
-                        $image->setImageFormat( "jpg" );
-                        $image->setOption('resize','25%');
-                        $image->writeImage('./uploads/thumbs/'.$pdfname.'.jpg');
+//                         // flattens multiple layers
+//                         $image = $image->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
+//                         $image->setImageFormat( "jpg" );
+//                         $image->setOption('resize','25%');
+//                         $image->writeImage('./uploads/thumbs/'.$pdfname.'.jpg');
                         
-                }
-        }
+//                 }
+//         }
 
         private function __insert_to_db($table, $data)
         {               
@@ -148,7 +148,7 @@ class Research extends Admin_Controller
                                         }
                                         $this->db->insert_batch('penelitian',$data);
                                 
-                                $this->_generate_thumbs($uploaded);
+                                //$this->_generate_thumbs($uploaded);
                                 
                                 chmod('./uploads/', 777);
                                 $this->session->set_flashdata('msg', 'File Uploaded!');
@@ -167,28 +167,27 @@ class Research extends Admin_Controller
                 }        
 
         }
-        public function get_json_penelitian(){
-                $list = $this->uploads->get_all_penelitian();
-                $no = 1;
-                $data = array();
-                foreach ($list as $file) {
-                    $row = array();
-                    $row[] = $no;
-                    $row[] = $file->id_penelitian;
-                    $row[] = $file->id_file;
-                    $row[] = $file->judul_penelitian;
-                    $row[] = $file->tahun_penelitian;
-                    $row[] = $file->nama_peneliti;
-                //     $row[] = $file->no_issn;
-                //     $row[] = $file->instansi;
-                //     $row[] = $file->publisher;
-                //     $row[] = $file->volume;
-                //     $row[] = $file->thumbnail;
-                    $no++;
-                    $data[] = $row;
-                }
-            
-                echo json_encode(['data' => $data]);
-     
-}
+        // public function get_json_penelitian(){
+        //         $list = $this->uploads->get_all_penelitian();
+        //         $no = 1;
+        //         $data = array();
+        //         foreach ($list as $file) {
+        //             $row = array();
+        //             $row[] = $no;
+        //             $row[] = $file->id_penelitian;
+        //             $row[] = $file->id_file;
+        //             $row[] = $file->judul_penelitian;
+        //             $row[] = $file->tahun_penelitian;
+        //             $row[] = $file->nama_peneliti;
+        //             $row[] = $file->no_issn;
+        //             $row[] = $file->instansi;
+        //             $row[] = $file->publisher;
+        //             $row[] = $file->volume;
+        //             $row[] = $file->abstrak;
+        //             $row[] = $file->thumbnail;
+        //             $no++;
+        //             $data[] = $row;
+        //         }
+        //         echo json_encode(['data' => $data]);
+        // }
     }
