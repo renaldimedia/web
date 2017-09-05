@@ -25,6 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['base_url'] = 'http://localhost/web/';
 
+$config['facebook_app_id'] = '1392526594194289';
+$config['facebook_app_secret'] = '47c902586ea1912d583c848d0a1921f6';
 /*
 |--------------------------------------------------------------------------
 | Index File

@@ -9,6 +9,7 @@ class Penelitian extends Public_Controller
         $this->load->database();
         $this->load->helper(array('url','download','paging'));
         //load template page
+       
     }
 
     private function _get_penelitian($tahun = null, $offset, $limit)
@@ -46,6 +47,7 @@ class Penelitian extends Public_Controller
 
     public function index($tahun = null)
     {
+
         //redirect link (for always show "hal/{page-number}")
         if (uri_string() == "public/penelitian") {
             redirect(site_url().'public/penelitian/hal/1');

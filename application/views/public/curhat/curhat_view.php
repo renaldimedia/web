@@ -4,9 +4,18 @@
                 <!--page header-->
                 <div class="page-header">
                         <h2 style="color:#fff;">Curhat</h2>
-                        <?php if ($this->ion_auth->in_group('member')) { ?>
-                        <a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-plus"></span> Curhat Baru</a>
-                        <?php } ?>        
+                        <?php if (!$this->ion_auth->logged_in()) { 
+                                echo $login_fb;
+                            ?>
+                        
+                        <?php } else{    
+                            echo '<a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-plus"></span> Curhat Baru</a>';
+                            //echo $this->ion_auth->user()->row()->id;
+                            
+                        }
+                       
+                        ?> 
+                        
                 </div>
                     <!--daftar materi-->
                     <row>
@@ -16,19 +25,10 @@
                             <a class="list-group-item" href="#">Apa yang menyebabkan kejombloan?
                                 <p style="font-size: 10px">Diposting 21 Agustus 2017 oleh Ardi <span class="badge">5 Komentar</span></p>
                             </a>
-                            <a class="list-group-item" href="#">Apa yang menyebabkan kejombloan?
-                                <p style="font-size: 10px">Diposting 21 Agustus 2017 oleh Ardi <span class="badge">5 Komentar</span></p>
-                            </a>
-                            <a class="list-group-item" href="#">Apa yang menyebabkan kejombloan?
-                                <p style="font-size: 10px">Diposting 21 Agustus 2017 oleh Ardi <span class="badge">5 Komentar</span></p>
-                            </a>
-                            <a class="list-group-item" href="#">Apa yang menyebabkan kejombloan?
-                                <p style="font-size: 10px">Diposting 21 Agustus 2017 oleh Ardi <span class="badge">5 Komentar</span></p>
-                            </a>
                         </ul>
                         </div>
                     </row>
-                    <!--paginasi/ halaman selanjutnya (jika banyak)-->
+                    <!--paginasi/ halaman selanjutnya (jika banyak)
                     <nav aria-label="Page navigation">
                         <ul class="pagination">
                             <li>
@@ -48,5 +48,6 @@
                             </li>
                         </ul>
                     </nav>
+                    -->
                 </div>
             

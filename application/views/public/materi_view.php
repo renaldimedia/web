@@ -13,7 +13,15 @@
     
         <row>
             <h2 style="color:#fff;font-size:2em;">Download</h2>
-
+<?php 
+     //echo "<pre>";
+     //print_r($this->session->all_userdata());
+     //echo $this->ion_auth->logged_in();
+     //echo $this->ion_auth->in_group('adminis');
+    // echo "</pre>";
+     
+     //echo $this->ion_auth->in_group(2);
+?>
             <hr>
         </row>
         <!--daftar materi-->

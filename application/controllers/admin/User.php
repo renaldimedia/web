@@ -3,10 +3,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class User extends MY_Controller
 {
+ 
     function __construct()
     {
         parent::__construct();
-        $this->load->library('ion_auth');
+        $this->load->library(array('form_validation','ion_auth'));
+       $this->load->database();
     }
 
     public function index()
@@ -44,4 +46,70 @@ class User extends MY_Controller
       $this->ion_auth->logout();
       redirect('admin/user/login', 'refresh');
     }
+    
+    public function facebook()
+    {
+      //if(!session_id()) {
+        //session_start();
+      //}
+      
+      $helper = $this->fb->getRedirectLoginHelper();
+      if (isset($_GET['state'])) {
+        $helper->getPersistentDataHandler()->set('state', $_GET['state']);
+    }
+      try
+      {
+        $accessToken = $helper->getAccessToken('http://localhost:80/web/admin/user/facebook');
+      }
+      catch(Facebook\Exceptions\FacebookResponseException $e)
+      {
+        // When Graph returns an error
+        echo 'There was an error while trying to login using Facebook: ' . $e->getMessage();
+        exit;
+      }
+      catch(Facebook\Exceptions\FacebookSDKException $e)
+      {
+        // When validation fails or other local issues
+        echo 'Facebook SDK returned an error: ' . $e->getMessage();
+        exit;
+      }
+     
+      if (isset($accessToken))
+      {
+        $this->fb->setDefaultAccessToken($accessToken);
+        try
+        {
+          $response = $this->fb->get('/me?fields=id,name,email');
+          $user = $response->getGraphUser(); // we retrieve the user data
+        }
+        catch(Facebook\Exceptions\FacebookResponseException $e)
+        {
+          // When Graph returns an error
+          echo 'Could not retrieve user data: ' . $e->getMessage();
+          exit;
+        }
+        catch(Facebook\Exceptions\FacebookSDKException $e)
+        {
+          // When validation fails or other local issues
+          echo 'Facebook SDK returned an error: ' . $e->getMessage();
+          exit;
+        }
+        if($this->form_validation->valid_email($user['email']))
+        {
+          $this->load->model('user_model');
+          if($this->user_model->login_with_facebook($user['email'], $user['name']))
+          {
+            redirect('public/curhat/');
+          }
+          else
+          {
+            redirect('public/curhat/');
+          }
+        }
+      }
+      else
+      {
+        echo 'oups... where is the access token???';
+      }
+    } 
 }

@@ -1,12 +1,16 @@
 <?php
 class Public_Controller extends MY_Controller
 {
+  
   function __construct()
   {
     parent::__construct();
+    $this->load->database();
     $this->load->library('ion_auth');
+  
     $this->data['page_title'] = 'Web Dosen';
     $this->load->helpers('menu');
+    
   }
 
   protected function render($the_view = NULL, $template = 'public_master')

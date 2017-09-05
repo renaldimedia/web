@@ -2,14 +2,23 @@
 
 class MY_Controller extends CI_Controller
 {
+  public $fb; 
     protected $data = array();
+   
     function __construct()
     {
       parent::__construct();
       $this->data['page_title'] = 'CI App';
       $this->data['before_head'] = '';
       $this->data['before_body'] ='';
-      
+      $this->fb = new Facebook\Facebook([
+        'app_id' => $this->config->item('facebook_app_id'),
+        'app_secret' => $this->config->item('facebook_app_secret'),
+        'default_graph_version' => 'v2.5'
+      ]);
+      // now we only need to build the object...
+    
+     
     }
    
     protected function render($the_view = NULL, $template = 'master')

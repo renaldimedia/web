@@ -1,24 +1,33 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
  
 class Curhat extends Public_Controller
 {
- 
-  function __construct()
-  {
-    parent::__construct();
-  }
- 
-  public function index()
-  {
-        
-        $this->render('public/curhat_view');
-  }
 
-  private function latest_file()
-  {
-      $this->load->database();
-      $query = "SELECT * FROM file ORDER BY file.upload_time DESC LIMIT 5";
-      $data = $this->db->query($query);
-      return $data->result();
-  }
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->database();
+    }
+ 
+    public function index()
+    {
+       
+        if (!session_id()) {
+             session_start();
+        }
+    
+    
+    
+        $helper = $this->fb->getRedirectLoginHelper();
+        $permissions = ['public_profile','email']; // these are the permissions we ask from the Facebook user's profile
+    
+        $this->data['login_fb'] = anchor($helper->getLoginUrl('http://localhost:80/web/admin/user/facebook', $permissions), '<div class="btn btn-primary"><span class="fa fa-facebook-square"></span> Login with Facebook</div>');
+    
+        $this->render('public/curhat/curhat_view');
+    }
+
+  
+    
+
+    
 }
