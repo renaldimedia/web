@@ -1,4 +1,4 @@
-<footer id="myFooter">
+<footer id="myFooter" class="navbar-fixed-bottom">
 <div class="container">
     <p class="footer-copyright">Website © 2017 Renaldi Media</p>
     <!-- Keterangan login sebagai user/admin -->

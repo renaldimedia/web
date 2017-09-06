@@ -132,6 +132,7 @@ class Research extends Admin_Controller
                         if($this->upload->do_multi_upload("files")) {
                                 $uploaded = $this->upload->get_multi_upload_data();
                                 $data =array();
+                                
                                 for($i=0; $i<count($uploaded); $i++) {
                                         $data[$i] = array(  
                                                    'id_penelitian' => '',

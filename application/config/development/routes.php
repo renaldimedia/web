@@ -67,6 +67,7 @@ $route['public/penelitian/hal/(:num)'] = "public/penelitian/index/0/$1";
 $route['public/penelitian/tahun/(:num)'] = "public/penelitian/index/$1/0";
 $route['public/penelitian/tahun/(:num)/hal'] = 'public/penelitian/index/$1/1/';
 $route['public/curhat'] = "public/curhat/index/";
+$route['public/curhat/add'] = "public/curhat/index/add";
 $route['public/curhat/(:any)'] = "public/curhat/index/$1";
 
 

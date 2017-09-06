@@ -210,14 +210,6 @@ class Upload extends Admin_Controller
                                         "upload_path"   => "./uploads/",
                                 ));
                         }
-                        
-                        
-                        // $query_kategori = "SELECT ms.*,mk.*,j.* FROM `matkul_semester` as ms
-                        // LEFT JOIN `mata_kuliah` as mk ON ms.id_matkul = mk.id_matkul
-                        // LEFT JOIN `jurusan` AS j ON ms.id_jurusan = j.id_jurusan
-                        // WHERE ms.id_matkul_semester = ?";
-                       
-                        //$kategori = ($this->db->query($query_kategori, $this->input->get_post('kategori', TRUE))->row());
                         $created_date = date("Y-m-d H:i:s");
                         //Perform upload.
                         if($this->upload->do_multi_upload("files")) {
