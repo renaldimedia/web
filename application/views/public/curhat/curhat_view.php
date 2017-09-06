@@ -9,7 +9,8 @@
                             ?>
                         
                         <?php } else{    
-                            echo '<a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-plus"></span> Curhat Baru</a>';
+                            echo '<div class="btn btn-success" style="color:#fff;"><a href="#" style="color:#fff;"><span class="glyphicon glyphicon-plus"></span> Curhat Baru   
+                            </a></div>';
                             //echo $this->ion_auth->user()->row()->id;
                             
                         }

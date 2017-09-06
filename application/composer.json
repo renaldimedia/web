@@ -3,11 +3,12 @@
     "description": "Web for Lecturer",
     "type": "project",
     "require": {
-        "facebook/php-sdk-v4": "^5.2",
+        "facebook/graph-sdk": "^5.2",
         "google/apiclient": "^2.0"
     },
     "require-dev": {
-        "php": ">=5.3"
+        "php": ">=5.3",
+        "php-console/php-console": "*"
     },
     "authors": [
         {

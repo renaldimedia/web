@@ -112,4 +112,13 @@ class User extends MY_Controller
         echo 'oups... where is the access token???';
       }
     } 
+
+    // public function facebook_logout()
+    // {
+    //   $token = $facebook->getAccessToken();
+    //   $site_url = "http://localhost:80/web/admin/user/facebook";
+    //   $url = 'https://www.facebook.com/logout.php?next=' . $site_url .
+    //     '&access_token='.$token;
+    //   session_destroy();
+    // }
 }
