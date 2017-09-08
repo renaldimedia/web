@@ -129,7 +129,7 @@
               
               var syncHtml = _.debounce(function() {
                 var contents = $(".ql-editor").html();
-                $('komentar').val(contents);
+                $('#teksCurhat').val(contents);
                 console.log(contents)
                 window.unsavedChanges = false;
               }, 500);

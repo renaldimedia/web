@@ -67,20 +67,28 @@
            </ul>
            <!--link dengan dropdown selesai-->
 
-           <!-- Nav untuk admin (optional) >
+           <!-- Nav untuk admin (optional) -->
+           <?php
+           $userId = $this->ion_auth->get_user_id();
+           if ($this->ion_auth->logged_in()){
+    //echo $this->session->userdata('user_id');
+?>
            <ul class="nav navbar-nav navbar-default navbar-right">
                <li class="dropdown multi-level">
-                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->userdata( 'username' ); ?> <span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
                    <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu">
                        <li>
-                           <a href="#">Logout</a>
+                           <a href="<?php echo base_url(); ?>admin/user/logout">Logout</a>
                        </li>
+                       <?php if ($this->ion_auth->in_group(1,$userId)){ ?>
                        <li class="divider"></li>
-                       <li><a href="#">Password</a>
+                       <li><a href="<?php echo base_url(); ?>public/admin/">Password</a>
                        </li>
+                       <?php  } ?>
                    </ul>
                </li>
-           </ul-->
+           </ul>
+            <?php  } ?>
            <!-- Nav untuk admin end -->
 
        </div>

@@ -86,6 +86,33 @@ class Curhat extends Public_Controller
         $this->render('public/curhat/curhat_view_add');
     }
 
+    public function edit($id)
+    {
+        if (!$this->ion_auth->logged_in()) {
+            redirect(base_url().'public/curhat');
+        }
+        $url = site_url('public/Curhat');
+        $this->data['back'] = $url;
+        $this->db->where('id_post',$id);
+        $data = $this->db->get('posting', 1)->row();
+        $this->data['data'] = $data;
+
+        $this->render('public/curhat/curhat_view_edit');
+    }
+
+    public function edit_post($id)
+    {
+
+        $judul = $this->input->post('judulCurhat',true);
+        $konten = $this->input->post('teksCurhat',true);
+        $data = array(
+            'judul_post' => $judul,
+            'konten_post' => $konten
+        );
+        $this->db->update('posting', $data, array('id_post' => $id));
+        redirect($this->agent->referrer());
+    }
+
     public function do_upload_multi()
     {
         $post_id = $this->add_post_curhat();

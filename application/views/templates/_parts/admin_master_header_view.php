@@ -26,7 +26,8 @@
 
 <body>
     <?php
-if ($this->ion_auth->logged_in()){
+if ($this->ion_auth->logged_in() AND $this->ion_auth->in_group(1, $this->ion_auth->get_user_id())){
+    
 ?>
         <div id="wrapper">
             <!-- Navigation -->

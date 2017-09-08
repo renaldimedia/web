@@ -19,6 +19,9 @@
                 <?php echo date("j F Y", strtotime($data->waktu_post)); ?> oleh
                 <?php echo $data->username; ?>
             </p>
+            <?php if ($data->id_user === $this->ion_auth->get_user_id()){
+                echo '<a href="'.base_url().'public/curhat/edit/'.$data->   id_post.'">Edit Post</a>';
+            } ?>
         </div>
 
         <div id="deskripsi" class="container" style="margin-bottom:10px;">

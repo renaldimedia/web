@@ -17,6 +17,9 @@ class User extends MY_Controller
 
     public function login()
     {
+      if ($this->ion_auth->logged_in() AND !$this->ion_auth->is_admin()){
+        $this->logout();
+      }
         $this->data['page_title'] = 'Login';
         if($this->input->post())
         {
