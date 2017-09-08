@@ -13,8 +13,8 @@
                         <div>
                         <ul class="list-group">
                             <?php foreach ($data as $val): ?>
-                            <a class="list-group-item" href="#"><?php echo $val->judul_post ?>
-                                <p style="font-size: 10px">Diposting 21 Agustus 2017 oleh Ardi <span class="badge">5 Komentar</span></p>
+                            <a class="list-group-item" href="<?php echo base_url().'public/curhat/detail/'.$val->id_post; ?>"><?php echo $val->judul_post ?>
+                                <p style="font-size: 10px">Diposting 21 Agustus 2017 oleh Ardi <span class="badge"><?php echo $count_komentar[$val->id_post]; ?> Komentar</span></p>
                             </a>
                             <?php endforeach; ?>
                         </ul>

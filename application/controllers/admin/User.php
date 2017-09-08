@@ -7,7 +7,7 @@ class User extends MY_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->library(array('form_validation','ion_auth'));
+        $this->load->library(array('form_validation','ion_auth','user_agent'));
        $this->load->database();
     }
 
@@ -79,7 +79,7 @@ class User extends MY_Controller
         $this->fb->setDefaultAccessToken($accessToken);
         try
         {
-          $response = $this->fb->get('/me?fields=id,name,email');
+          $response = $this->fb->get('/me?fields=id,name,email,picture');
           $user = $response->getGraphUser(); // we retrieve the user data
         }
         catch(Facebook\Exceptions\FacebookResponseException $e)

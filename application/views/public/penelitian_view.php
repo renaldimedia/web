@@ -58,7 +58,7 @@
                 
             }
             
-        </style>
+</style>
      
         <div class="container-fluid" style="background-color: white;padding-bottom:4vw;">
             <row style="background-color: white;">

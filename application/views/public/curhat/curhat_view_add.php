@@ -117,13 +117,7 @@
                   //console.log('Cursor not in the editor');
                 }
               });
-              window.addEventListener("beforeunload", function (e) {
-                if (window.unsavedChanges) {
-                  e.returnValue = 'Unsaved Changes!';
-                  return 'Unsaved Changes!';
-                };
-                return;
-              });
+              window.unsavedChanges = false;
               
               window.addEventListener("beforeunload", function (e) {
                 if (window.unsavedChanges) {
@@ -135,7 +129,7 @@
               
               var syncHtml = _.debounce(function() {
                 var contents = $(".ql-editor").html();
-                $('#teksCurhat').val(contents);
+                $('komentar').val(contents);
                 console.log(contents)
                 window.unsavedChanges = false;
               }, 500);
