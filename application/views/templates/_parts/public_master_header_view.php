@@ -60,8 +60,6 @@
        <div id="navbar" class="navbar-collapse collapse">
            <ul class="nav navbar-nav navbar-default">
                <?php
-                  
-                       
                        echo $menu;
                        ?>
            </ul>

@@ -1,1 +1,1 @@
-<h3 class="page-header">Selamat Datang Pada Aplikasi Penggajian</h3>
+<h3 class="page-header">Selamat Datang <?php  echo $current_user->username; ?></h3>

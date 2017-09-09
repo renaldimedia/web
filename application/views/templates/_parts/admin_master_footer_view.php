@@ -15,14 +15,24 @@
                 jQuery(document).ready(function() {
                     $( '#sidenav li[class="active"]' ).removeClass();
                     $( '#sidenav .side-nav > li > a[href="<?php echo base_url(); ?>admin/' + location.pathname.split("/")[3] + '"]' ).parent().addClass("active");
+;
+                    $("#sidenav > ul > li > a.dropdown-toggle").click(function(event) {
+                        
+                        var id_menu =  $(this).attr('id');
+                        if $("ul[id='demo" + id_menu + "']").hasClass("in"){
+                            $("ul[id='demo" + id_menu + "']").removeClass("in");
+                        }else{
+                            $("ul[id='demo" + id_menu + "']").addClass("in");
+                        }
+                        
 
-                    $("#sidenav > ul > li > a.dropdown-toggle ").click(function() {
-                        $('#demo').removeClass("in");
                     });
-                    
-                    
+                  
+  
+
                 });  
             </script>
+            
             <?php echo $before_body;?>
             </body>
             </html>        

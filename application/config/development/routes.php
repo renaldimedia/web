@@ -72,7 +72,7 @@ $route['public/curhat/tambah'] = "public/Curhat/index/tambah";
 
 $route['public/curhat/hal'] = "public/Curhat/index/hal/1";
 $route['public/curhat/hal/(:num)'] = "public/Curhat/index/hal/$1";
-
+$route['admin/posting'] = 'admin/posting/index/';
 
 
 

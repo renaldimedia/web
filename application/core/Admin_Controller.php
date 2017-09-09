@@ -56,14 +56,14 @@ class Admin_Controller extends MY_Controller
           if ($element['induk_menu']==$induk_menu) {
               if (in_array($element['id_menu'], $parents)) {
                   $menu_html .= '<li class="'.$class1.'">';
-                  $menu_html .= '<a id="menu'.$element['id_menu'].'" href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#demo" role="button" aria-expanded="false"><i class=""'.$element['class'].'>'.$element['nama_menu'].' </i><i class="fa fa-fw fa-caret-down"></i></a>';
+                  $menu_html .= '<a id="'.$element['id_menu'].'" href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#demo'.$element['id_menu'].'" role="button" aria-expanded="true"><i class=""'.$element['class'].'>'.$element['nama_menu'].' </i><i class="fa fa-fw fa-caret-down"></i></a>';
               } else {
                   $menu_html .= '<li>';
-                  $menu_html .= '<a id="menu'.$element['id_menu'].'" href="' .base_url().$element['link'] . '"><i class="'.$element['class'].'"> </i> '.$element['nama_menu'] . '</a>';
+                  $menu_html .= '<a id="'.$element['id_menu'].'" href="' .base_url().$element['link'] . '"><i class="'.$element['class'].'"> </i> '.$element['nama_menu'] . '</a>';
               }
               if (in_array($element['id_menu'], $parents)) {
-                  $menu_html .= '<ul id="demo" class="dropdown-menu">';
-                  $menu_html .= $this->bootstrap_menuadm($array, "collapse" ,$element['id_menu'], $parents);
+                  $menu_html .= '<ul id="demo'.$element['id_menu'].'" class="dropdown-menu collapse">';
+                  $menu_html .= $this->bootstrap_menuadm($array, "dropdown-menu" ,$element['id_menu'], $parents);
                   $menu_html .= '</ul>';
               }
               $menu_html .= '</li>';
